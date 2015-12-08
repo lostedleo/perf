@@ -4,6 +4,9 @@ if [ $# == 0 ];then
 	cd src;
 	make;
 	cd ..;
+    if [ ! -d ./obj ];then
+        mkdir obj
+    fi
 	make -f makeobj;
     if [ ! -d ./inc ];then
         mkdir inc
