@@ -1,0 +1,12 @@
+OBJPATH=$(SERVER_ROOT)/obj
+INCLUDE = -I/usr/local/mysql/include -I${BASEBASEROOT}/common -I/usr/local/include/thrift -I${BASEBASEROOT}/Protocol/include -I/usr/local/jansson/include \
+-I${FRAMECOMMON}/include -I${FRAMECOMMON}/include/framecommon -I${SRVFRAME}/include   -I${SERVER_ROOT}/thrift -I${BASEBASEROOT}/thrift_process\
+-I${SERVER_ROOT}/src/task -I${SERVER_ROOT}/src/main -I${SERVER_ROOT}/src/thread -I${SERVER_ROOT}/src/common -I${SERVER_ROOT}/src/test
+LIBS = -L${FRAMECOMMON}/lib -L${SRVFRAME}/lib -lsrvframe -lframecommon -lmemcached /usr/local/mysql/lib/mysql/libmysqlclient_r.a -lz -lpthread -lssl -luuid -L-I${BASEBASEROOT}/Protocol/lib -lDuoProtocol /usr/local/jansson/lib/libjansson.a /usr/local/thrift/lib/libthrift.a -lthrift  -lthriftnb -levent
+
+CXX= g++
+MACRO=-D_REENTRANT -D__USE_EPOLL 
+CFLAGS = -g -Wall ${MACRO} 
+
+AS=yasm
+ASFLAGS = -Xvc -f ELF64 -d NOPREFIX -d ARCH_X86_64 

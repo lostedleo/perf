@@ -1,0 +1,11 @@
+include makefile.comm
+TARGET=$(OBJPATH)/libynframe.a
+OBJ=$(OBJPATH)/*.o
+
+all:$(TARGET)
+
+$(TARGET):$(OBJ)
+	ar rcs $@ $^
+
+clean:
+	rm -f $(TARGET)
